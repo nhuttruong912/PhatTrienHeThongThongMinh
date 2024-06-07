@@ -1,0 +1,18 @@
+﻿@using MenShoe.EF;
+@model List<ProductCategory>
+@{
+    Layout = null;
+}
+
+<div class="box-sale-policy" ng-controller="moduleController" ng-init="initSalePolicyController('Shop')">
+    <h3><span>Brand</span></h3>
+    <div class="sale-policy-block">
+        <ul>
+            @foreach(var item in Model)
+            {
+                <li style="clear:both; list-style-type: none;list-style:none"><a style="color:#3c3f44;" href="@Url.Action("ProductCategory","ProductCategory", new { @ProductCategoryID = item.ProductCategoryID })">@item.Name</a></li>
+            }
+        </ul>
+    </div>
+    
+</div>

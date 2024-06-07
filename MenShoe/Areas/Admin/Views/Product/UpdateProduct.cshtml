@@ -1,0 +1,420 @@
+﻿@model MenShoe.EF.Product
+@using MenShoe.EF;
+<link href="~/Content/Admin/Layout/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Admin/Layout/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Admin/Layout/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Admin/Layout/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/Admin/Layout/assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "UpdateProduct";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+
+    List<ProductCategory> lstProductCategory = ViewBag.ProductCategories;
+    List<Category> lstCategory = ViewBag.Categories;
+}
+
+<h1 class="page-title">
+    eCommerce Products Edit
+    <small>edit product</small>
+</h1>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="icon-home"></i>
+            <a href="@Url.Action("Index","Home")">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Product")">Product</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <span>Update Product</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-bell"></i> Action
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-shield"></i> Another action
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> Something else here
+                    </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-bag"></i> Separated link
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post, new { @class = "form-horizontal form-row-seperated" }))
+        {
+            <div class="portlet">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-shopping-cart"></i>Test Product
+                    </div>
+                    <div class="actions btn-set">
+                        <button type="button" name="back" class="btn btn-secondary-outline" onclick="location.href='@Url.Action("Index", "Product")'">
+                            <i class="fa fa-angle-left"></i> Back
+                        </button>
+                        <button class="btn btn-success" type="submit">
+                            <i class="fa fa-check"></i> Save
+                        </button>
+                        <div class="btn-group">
+                            <a class="btn btn-success dropdown-toggle" href="javascript:;" data-toggle="dropdown">
+                                <i class="fa fa-share"></i> More
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <div class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;"> Duplicate </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"> Delete </a>
+                                </li>
+                                <li class="dropdown-divider"> </li>
+                                <li>
+                                    <a href="javascript:;"> Print </a>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="tabbable-bordered">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab_general" data-toggle="tab"> General </a>
+                            </li>
+                            <li>
+                                <a href="#tab_meta" data-toggle="tab"> Meta </a>
+                            </li>
+                            @*<li>
+                                    <a href="#tab_images" data-toggle="tab"> Images </a>
+                                </li>*@
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_general">
+                                <div class="form-body">
+                                    <div class="form-group" style="display:none">
+                                        <label class="col-md-2 control-label">
+                                            Id:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="ID" value="@Model.ProductID" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">
+                                            Name:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="Name" value="@Model.Name" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">
+                                            Description:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                            <textarea style="height:100px" class="form-control" name="Detail">@Model.Detail</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">
+                                            Categories:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                            <div class="form-control height-auto">
+                                                <div class="scroller" style="height:275px;" data-always-visible="1">
+                                                    <ul class="list-unstyled">
+                                                        <li>
+                                                            <label>
+                                                                Categories
+                                                            </label>
+                                                            <ul class="list-unstyled">
+                                                                @foreach (var category in lstCategory)
+                                                                {
+                                                                    <li>
+                                                                        <label>
+                                                                            @if (Model.CategoryID == category.CategoryID)
+                                                                            {
+                                                                                <input type="radio" checked="checked" name="Category" value="@category.CategoryID">@category.Name
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <input type="radio" name="Category" value="@category.CategoryID">@category.Name
+                                                                            }
+
+                                                                        </label>
+                                                                    </li>
+                                                                }
+
+                                                            </ul>
+                                                        </li>
+                                                        <li>
+                                                            <label>
+                                                                Brands
+                                                            </label>
+                                                            <ul class="list-unstyled">
+                                                                @foreach (var prdCategory in lstProductCategory)
+                                                                {
+                                                                    <li>
+                                                                        <label>
+                                                                            @if (Model.ProductCategoryID == prdCategory.ProductCategoryID)
+                                                                            {
+                                                                                <input checked="checked" type="radio" name="ProductCategory" value="@prdCategory.ProductCategoryID">@prdCategory.Name
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <input type="radio" name="ProductCategory" value="@prdCategory.ProductCategoryID">@prdCategory.Name
+                                                                            }
+
+                                                                        </label>
+                                                                    </li>
+                                                                }
+
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Warranty <span class="required"> * </span></label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" name="Warranty" value="@Model.Warranty">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">
+                                            Price:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                            <input type="number" class="form-control" name="Price" value="@Model.Price">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">
+                                            Promotion Price:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                            <input type="number" class="form-control" name="PromotionPrice" value="@Model.PromotionPrice">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">
+                                            Status:
+                                            <span class="required"> * </span>
+                                        </label>
+                                        <div class="col-md-10">
+                                            @{
+                                                List<SelectListItem> lstStatus = new List<SelectListItem>();
+                                                lstStatus.Add(new SelectListItem
+                                                {
+                                                    Text = "Public",
+                                                    Value = "True"
+                                                });
+                                                lstStatus.Add(new SelectListItem
+                                                {
+                                                    Text = "Not Public",
+                                                    Value = "False"
+                                                });
+                                            }
+                                            @Html.DropDownListFor(m => m.New, lstStatus, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_meta">
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Meta Title:</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control maxlength-handler" name="ProductMeta_title" maxlength="100" value="@Model.MetaTitle">
+                                            <span class="help-block"> max 100 chars </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Meta Keywords:</label>
+                                        <div class="col-md-10">
+                                            <textarea class="form-control maxlength-handler" rows="8" name="product[meta_keywords]" maxlength="1000"></textarea>
+                                            <span class="help-block"> max 1000 chars </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">Meta Description:</label>
+                                        <div class="col-md-10">
+                                            <textarea class="form-control maxlength-handler" rows="8" name="product[meta_description]" maxlength="255"></textarea>
+                                            <span class="help-block"> max 255 chars </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_images">
+                                <div class="alert alert-success margin-bottom-10">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+                                    <i class="fa fa-warning fa-lg"></i> Image type and information need to be specified.
+                                </div>
+                                <div id="tab_images_uploader_container" class="text-align-reverse margin-bottom-10">
+                                    <a id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
+                                        <i class="fa fa-plus"></i> Select Files
+                                    </a>
+                                    <a id="tab_images_uploader_uploadfiles" href="javascript:;" class="btn btn-primary">
+                                        <i class="fa fa-share"></i> Upload Files
+                                    </a>
+                                </div>
+                                <div class="row">
+                                    <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"> </div>
+                                </div>
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr role="row" class="heading">
+                                            <th width="8%"> Image </th>
+                                            <th width="25%"> Label </th>
+                                            <th width="8%"> Sort Order </th>
+                                            <th width="10%"> Base Image </th>
+                                            <th width="10%"> Small Image </th>
+                                            <th width="10%"> Thumbnail </th>
+                                            <th width="10%"> </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <a href="../assets/pages/media/works/img1.jpg" class="fancybox-button" data-rel="fancybox-button">
+                                                    <img class="img-responsive" src="../assets/pages/media/works/img1.jpg" alt="">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="product[images][1][label]" value="Thumbnail image">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="product[images][1][sort_order]" value="1">
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name="product[images][1][image_type]" value="1">
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name="product[images][1][image_type]" value="2">
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name="product[images][1][image_type]" value="3" checked>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="btn btn-default btn-sm">
+                                                    <i class="fa fa-times"></i> Remove
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="../assets/pages/media/works/img2.jpg" class="fancybox-button" data-rel="fancybox-button">
+                                                    <img class="img-responsive" src="../assets/pages/media/works/img2.jpg" alt="">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="product[images][2][label]" value="Product image #1">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="product[images][2][sort_order]" value="1">
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name="product[images][2][image_type]" value="1">
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name="product[images][2][image_type]" value="2" checked>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name="product[images][2][image_type]" value="3">
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="btn btn-default btn-sm">
+                                                    <i class="fa fa-times"></i> Remove
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="../assets/pages/media/works/img3.jpg" class="fancybox-button" data-rel="fancybox-button">
+                                                    <img class="img-responsive" src="../assets/pages/media/works/img3.jpg" alt="">
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="product[images][3][label]" value="Product image #2">
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="product[images][3][sort_order]" value="1">
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name="product[images][3][image_type]" value="1" checked>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name="product[images][3][image_type]" value="2">
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label>
+                                                    <input type="radio" name="product[images][3][image_type]" value="3">
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <a href="javascript:;" class="btn btn-default btn-sm">
+                                                    <i class="fa fa-times"></i> Remove
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                                }
+
+    </div>
+</div>

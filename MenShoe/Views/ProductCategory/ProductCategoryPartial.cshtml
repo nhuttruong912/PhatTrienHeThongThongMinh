@@ -1,0 +1,93 @@
+﻿@{
+    List<MenShoe.EF.Category> lstCategories = ViewBag.Categories;
+    List<MenShoe.EF.ProductCategory> lstProductCategories = ViewBag.ProductCategories;
+}
+<div class="col-md-3">
+    <div class="menu-cate menu-quick-select">
+        <div class="menu-cate-title">
+            <span><i class="fa fa-th-list"></i><a href="/san-pham.html">CATEGORIES</a></span>
+            <i class="fa fa-chevron-circle-down"></i>
+        </div>
+        <ul class="menu-cate-content">
+            <li>
+                @{
+                    foreach (var C in lstCategories)
+                    {
+                        <a href="@Url.Action("Category","Category", new { @CategoryID = C.CategoryID })"><i class="fa "></i>@C.Name<span class="arrow-menu"><i class="fa fa-chevron-right "></i></span></a>
+                    }
+                    <a href=""><i class="fa "></i>VIEW ALL<span class="arrow-menu"><i class="fa fa-chevron-right "></i></span></a>
+                }
+
+                <div class="sub-menu hidden-xs">
+                    <ul class="colum0">
+                        <li>
+                            <a href="/san-pham/may-quay-phim">BRAND</a>
+                            <ul class="subview-menu">
+                                @{
+                                    foreach (var prd in lstProductCategories)
+                                    {
+                                        <li><a href="@Url.Action("ProductCategory","ProductCategory", new { @ProductCategoryID = prd.ProductCategoryID })">@prd.Name</a></li>
+                                    }
+                                }
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/san-pham/may-anh-so-1140">M&#225;y ảnh số</a>
+                            <ul class="subview-menu">
+                                <li><a href="/san-pham/may-anh-canon">M&#225;y ảnh Canon</a></li>
+                                <li><a href="/san-pham/may-anh-panasonic">M&#225;y ảnh Panasonic</a></li>
+                                <li><a href="/san-pham/may-anh-samsung">M&#225;y ảnh Samsung</a></li>
+                                <li><a href="/san-pham/may-anh-sony">M&#225;y ảnh Sony</a></li>
+                                <li><a href="/san-pham/may-anh-nikon">M&#225;y ảnh Nikon</a></li>
+                                <li><a href="/san-pham/may-anh-casio-1411">M&#225;y ảnh Casio</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @*<ul class="colum1">
+                            <li>
+                                <a href="/san-pham/bo-do-the-thao-nam-1139">Bộ Đồ Thể Thao Nam</a>
+                            </li>
+                            <li>
+                                <a href="/san-pham/phu-kien">Phụ kiện</a>
+                                <ul class="subview-menu">
+                                    <li><a href="/san-pham/chan-may">Ch&#226;n m&#225;y</a></li>
+                                    <li><a href="/san-pham/pin--sac">Pin, Sạc</a></li>
+                                    <li><a href="/san-pham/the-nho">Thẻ nhớ</a></li>
+                                    <li><a href="/san-pham/lens-hood">Lens hood</a></li>
+                                    <li><a href="/san-pham/bo-ve-sinh">Bộ vệ sinh</a></li>
+                                </ul>
+                            </li>
+                        </ul>*@
+                </div>
+            </li>
+        </ul>
+    </div>
+    @*<script>
+        $(document).ready(function () {
+            var $colls = $('.menu-cate-title'),
+                $menulist = $(".menu-cate-content"),
+                $menuitems = $menulist.find('li');
+
+            $menulist.hide();
+
+
+            var hoverin = function () {
+                $menulist.fadeIn();
+            };
+
+            var hoverout = function () {
+                $menulist.fadeOut();
+            };
+
+            var collenter = function () {
+                $menuitems.fadeIn();
+            };
+
+            $menulist
+                .hover(collenter, hoverout)
+                .bind('mouseleave', hoverout);
+
+            $colls.bind('mouseenter', hoverin);
+        });
+    </script>*@
+</div>

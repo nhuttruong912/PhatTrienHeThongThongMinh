@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "searchNull";
+    Layout = "~/Views/Shared/_UserLayoutDetail.cshtml";
+}
+
+<div class="product-box no-mg">
+
+    <h1 class="title clearfix"><span>Not Found</span></h1>
+    <div class="alert alert-warning" role="alert">0 items matched your search.</div>
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button type="submit" class="btn btn-success">Back Home</button>
+    }
+
+</div>

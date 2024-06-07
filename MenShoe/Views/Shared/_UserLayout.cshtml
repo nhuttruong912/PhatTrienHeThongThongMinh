@@ -1,0 +1,400 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta charset="UTF-8" />
+    <title>Men's Shoes Shop</title>
+    <meta content="RUNECOM03" name="description" />
+    <meta content="" name="keywords" />
+    <link rel="shortcut icon" type="image/x-icon" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta property="fb:app_id" content="227481454296289" />
+
+    <meta content="vi_VN" property="og:locale" />
+    <meta content="website" property="og:type" />
+    <meta content="/" property="og:url" />
+
+    <link href="~/Content/User/Scripts/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/User/App_Themes/Home/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/User/App_Themes/Home/common.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/User/App_Themes/Home/animate.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/User/Scripts/jQuery-ui/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Content/User/Scripts/jQuery/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="~/Content/User/Scripts/jQuery/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="~/Content/User/Scripts/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/User/Scripts/jQuery-ui/jquery-ui.min.js" type="text/javascript"></script>
+
+    <script src="~/Content/User/Scripts/common/fix-height.js" data-img-box=".image-resize" type="text/javascript"></script>
+    <script src="~/Content/User/Scripts/common/common.js" type="text/javascript"></script>
+    <script src="~/Content/User/Scripts/common/jquery.cookie.js" type="text/javascript"></script>
+    <script src="~/Content/User/Scripts/common/mycard.js" type="text/javascript"></script>
+    <script src="~/Content/User/Scripts/lazyLoad/jquery.lazyload.min.js" type="text/javascript"></script>
+
+    <script src="~/Content/User/Scripts/angularJS/angular.min.js"></script>
+    <script src="~/Content/User/Scripts/angularJS/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="~/Content/User/Scripts/angular-loading-spinner/spin.min.js"></script>
+    <script type="text/javascript" src="~/Content/User/Scripts/angular-loading-spinner/angular-spinner.min.js"></script>
+    <script type="text/javascript" src="~/Content/User/Scripts/angular-loading-spinner/angular-loading-spinner.js"></script>
+    <script src="~/Content/User/app/appMain.js"></script>
+    <script src="~/Content/User/app/directives/directive.js"></script>
+    <script src="~/Content/User/app/directives/angular-summernote.js"></script>
+    <script src="~/Content/User/app/directives/paging.js"></script>
+    <script src="~/Content/User/app/services/ajaxServices.js"></script>
+    <script src="~/Content/User/app/services/alertsServices.js"></script>
+    <link href="http://static.runtime.vn/App_Themes/RUN003C5/style.css" rel="stylesheet" type="text/css" />
+    <link href="http://static.runtime.vn/App_Themes/RUN003/responsive.css" rel="stylesheet" type="text/css" />
+
+
+
+
+</head>
+<body ng-app="appMain" style="font-size: 14px !important">
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "~/Content/User//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=227481454296289";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+    <div class="wrapper">
+
+        <div class="header">
+
+            <script src="~/Content/User/Scripts/common/login.js" type="text/javascript"></script>
+            <section class="top-link clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="nav navbar-nav topmenu-contact">
+                                <li><i class="fa fa-phone"></i>Hotline:01662324562</li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right topmenu  hidden-xs hidden-sm">
+                                <li class="hotline"><a href="#"><i class="fa fa-phone"></i>Hotline:01662324562</a></li>
+                                <li class="order-cart">@Html.Action("CartPartial", "Cart")</li>
+                                @{
+                                    if (Session["IdAdmin"] != null)
+                                    {
+                                        <li class="order-check"><a href="/kiem-tra-don-hang.html"><i class="fa fa-pencil-square-o"></i>Check Order</a></li>
+                                    }
+                                    if (Session["IdCustomer"] == null)
+                                    {
+                                        <li class="account-login"><a href="@Url.Action("CustomerLogin", "Customer")"><i class="fa fa-sign-in"></i>Login</a></li>
+                                        <li class="account-register"><a href="@Url.Action("CustomerRegister", "Customer")"><i class="fa fa-key"></i>Register</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li class="account-login"><a href="@Url.Action("CustomerDetail", "Customer", new {@ID = Session["IdCustomer"] })"><i class="fa fa-user-circle"></i>Hello @Session["Name"]</a></li>
+                                        <li class="account-register"><a href="@Url.Action("CustomerLogOut","Customer")"><i class="fa fa-sign-out"></i>LogOut</a></li>
+                                    }
+
+                                }
+                            </ul>
+                            <div class="show-mobile hidden-lg hidden-md">
+                                <div class="quick-user">
+                                    <div class="quickaccess-toggle">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="inner-toggle">
+                                        <ul class="login links">
+                                            @{
+                                                if (Session["IdAdmin"] != null)
+                                                {
+                                                    <li class="order-check"><a href="/kiem-tra-don-hang.html"><i class="fa fa-pencil-square-o"></i>Check Order</a></li>
+                                                }
+                                                if (Session["IdCustomer"] == null)
+                                                {
+                                                    <li class="account-login"><a href="@Url.Action("CustomerLogin","Customer")"><i class="fa fa-sign-in"></i>Login</a></li>
+                                                    <li class="account-register"><a href="@Url.Action("CustomerRegister","Customer")"><i class="fa fa-key"></i>Register</a></li>
+                                                }
+                                                else
+                                                {
+                                                    <li class="account-login"><a href="@Url.Action("CustomerDetail","Customer", new {@ID = Session["IdCustomer"] })"><i class="fa fa-user-circle"></i>Hello @Session["Name"]</a></li>
+                                                    <li class="account-register"><a href="@Url.Action("CustomerLogOut","Customer")"><i class="fa fa-sign-out"></i>LogOut</a></li>
+                                                }
+
+                                            }
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="quick-access">
+                                    <div class="quickaccess-toggle">
+                                        <i class="fa fa-list"></i>
+                                    </div>
+                                    <div class="inner-toggle">
+                                        <ul class="links">
+                                            @if (Session["IdAdmin"] != null)
+                                            {
+                                                <li><a id="mobile-wishlist-total" href="/kiem-tra-don-hang.html" class="wishlist"><i class="fa fa-pencil-square-o"></i>Check Order</a></li>
+                                            }
+                                            <li>@Html.Action("CartPartial", "Cart")</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="header-content clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-12 col-sm-12 header-left text-center">
+                            <div class="logo">
+                                <a href="/" title="">
+                                    <img alt="Men's Shoe Shop'" src="~/Content/User/Uploads/shop90/images/banner(1).png" class="img-responsive" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-xs-12 col-sm-12 header-right">
+                            <div class="sale-policy clearfix hidden-sm hidden-xs">
+                                <ul class="clearfix">
+                                    <li class="shipping">
+                                        <i class="fa fa-truck"></i><span>
+                                            Free Shipping
+                                        </span>
+                                    </li>
+                                    <li class="payment">
+                                        <i class="fa fa-money"></i><span>UP TO 70% OFF MENS SALE</span>
+                                    </li>
+                                    <li class="return">
+                                        <i class="fa fa-refresh"></i><span>
+                                            Free returns
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="cart">
+                                <div class="heading">
+                                    <a href="@Url.Action("Cart", "Cart")">
+                                        <span class="icon">icon</span><span id="cart-total">
+                                            
+                                        </span><i class="fa fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="search hidden-sm hidden-xs">
+                                <div class="input-cat form-search clearfix">
+                                    @using (Html.BeginForm("SearchResult", "Search"))
+                                    {
+                                        <div class="form-search-controls">
+                                            <input type="text" name="txtSearch" id="txtsearch" placeholder="Search..."/>
+                                            <div class="select-categories">
+                                                <select name="lbgroup" id="lbgroup">
+                                                    <option value="0" selected="selected">ALL</option>
+                                                    <option class="option-1" value="1">PRODUCT</option>
+                                                    <option class="option-1" value="2">CATEGORY</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-search" title="Search" type="submit" id="btnsearch" value="Search">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    }
+                                    
+                                </div>
+                            </div>
+                            <div class="social-group">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="navigation-menu clearfix">
+                <div class="container">
+                    <div class="menu-top">
+                        <div class="row">
+                            @Html.Partial("~/Views/ProductCategory/ProductCategoryPartial.cshtml")
+                            <div class="col-md-9 ">
+                                <nav class="navbar nav-menu">
+                                    <div class="navbar-header">
+                                        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#mobile-menu" aria-controls="mobile-menu" aria-expanded="false">
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <nav id="mobile-menu" class="mobile-menu collapse navbar-collapse">
+                                        <ul class='menu nav navbar-nav'>
+                                            <li class="level0"><a class='' href='@Url.Action("Index","Home")'><span>HOME</span></a></li>
+                                            <li class="level0"><a class='' href='/gioi-thieu.html'><span>ABOUT</span></a></li>
+                                            <li class="level0"><a class='' href='/san-pham.html'><span>PRODUCT</span></a></li>
+                                            <li class="level0"><a class='' href='/tin-tuc.html'><span>NEWS</span></a></li>
+                                            <li class="level0"><a class='' href='/lien-he.html'><span>CONTACT</span></a></li>
+                                        </ul>
+                                    </nav>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    var str = location.href.toLowerCase();
+                    $("ul.menu li a").each(function () {
+                        if (str.indexOf(this.href.toLowerCase()) >= 0) {
+                            $("ul.menu li").removeClass("active");
+                            $(this).parent().addClass("active");
+                        }
+                    });
+                });
+            </script>
+
+        </div>
+
+
+
+        <div class="slideshow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                    </div>
+                    <div class="col-md-9 ">
+
+                        <script src="~/Content/User/app/services/moduleServices.js"></script>
+                        <script src="~/Content/User/app/controllers/moduleController.js"></script>
+                        <!--Begin-->
+                        <link href="~/Content/User/Scripts/flexSlider/flexslider.css" rel="stylesheet" type="text/css" />
+                        <script src="~/Content/User/Scripts/flexSlider/jquery.flexslider-min.js" type="text/javascript"></script>
+                        <div class="flexslider slideshow-content" id="bannerheaderhome" ng-controller="moduleController" ng-init="initSlideshowController('Slideshows')">
+                            <ul class="slides">
+                                <li ng-repeat="item in Slideshows">
+                                    <a title="{{item.Name}}" href="{{item.Link}}">
+                                        <img alt="{{item.Name}}" ng-src="{{item.Image}}" data-original="{{item.Image}}" class="lazy" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('#bannerheaderhome').flexslider({
+                                    directionNav: true,
+                                    controlNav: false,
+                                    animation: "slide",
+                                    itemHeigh: 270,
+                                    itemMargin: 0,
+                                    animationSpeed: 700,
+                                    slideshowSpeed: 3000
+                                });
+                            });
+                        </script>
+                        <!--End-->
+                        <script type="text/javascript">
+                            window.Slideshows = [{ "Id": 448, "ShopId": 90, "Name": "#", "Image": "/Content/User/Uploads/shop90/images/product/CasualCoolbanner950x480.jpg", "Link": "null", "Index": 1, "Inactive": false, "Timestamp": "AAAAAAAPo1o=" }, { "Id": 449, "ShopId": 90, "Name": "#2", "Image": "/Content/User/Uploads/shop90/images/product/mens-shoes-web-banner.jpg", "Link": null, "Index": 2, "Inactive": false, "Timestamp": "AAAAAAAPo1k=" }, { "Id": 450, "ShopId": 90, "Name": "65", "Image": "/Content/User/Uploads/shop90/images/product/banner1-1-1159x440.png", "Link": null, "Index": 3, "Inactive": false, "Timestamp": "AAAAAAAPo1s=" }];
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <section class="product-content clearfix">
+
+                            @RenderBody()
+
+                        </section>
+                        <!--Template--
+                        --End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="partner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <link href="~/Content/User/Scripts/owl-carousel/owl.carousel.css" rel="stylesheet" />
+                        <link href="~/Content/User/Scripts/owl-carousel/owl.theme.css" rel="stylesheet" />
+                        <script src="~/Content/User/Scripts/owl-carousel/owl.carousel.min.js"></script>
+                        <script src="~/Content/User/app/services/moduleServices.js"></script>
+                        <script src="~/Content/User/app/controllers/moduleController.js"></script>
+                        <!--Begin-->
+
+                        <script type="text/javascript">
+                            $(document).ready(function () {
+                                var owl = $(".partner-block");
+                                owl.owlCarousel({
+                                    autoPlay: true,
+                                    autoPlay: 5000,
+                                    items: 6,
+                                    slideSpeed: 1000,
+                                    pagination: false,
+                                    itemsDesktop: [1200, 6],
+                                    itemsDesktopSmall: [980, 5],
+                                    itemsTablet: [767, 4],
+                                    itemsMobile: [480, 2]
+                                });
+                                $(".partner-content .nextlogo").click(function () {
+                                    owl.trigger('owl.next');
+                                });
+                                $(".partner-content .prevlogo").click(function () {
+                                    owl.trigger('owl.prev');
+                                });
+                            });
+                        </script>
+                        <!--End-->
+                        <script type="text/javascript">
+                            window.Partners = [{ "Id": 1, "ShopId": 90, "Name": "Adv01", "Link": "#", "Logo": "/Uploads/shop90/images/product/guhi.jpg", "Index": 1, "Inactive": false }, { "Id": 7, "ShopId": 90, "Name": "Adv02", "Link": "#", "Logo": "/Uploads/shop90/images/product/canon.jpg", "Index": 2, "Inactive": false }, { "Id": 8, "ShopId": 90, "Name": "ads", "Link": "#", "Logo": "/Uploads/shop90/images/product/nikon.jpg", "Index": 3, "Inactive": false }, { "Id": 9, "ShopId": 90, "Name": "4ss", "Link": "#", "Logo": "/Uploads/shop90/images/product/burbery_2jrem8aiipohl_simg_603cef_226x114_maxb.png", "Index": 4, "Inactive": false }, { "Id": 10, "ShopId": 90, "Name": "dfa", "Link": "#", "Logo": "/Uploads/shop90/images/product/nikon(1).jpg", "Index": 5, "Inactive": false }];
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       @Html.Partial("~/Views/Shared/_FooterLayout.cshtml")
+
+    </div>
+
+    <div style="display: none;" id="loading-mask">
+        <div id="loading_mask_loader" class="loader">
+            <img alt="Loading..." src="~/Content/User/Images/ajax-loader-main.gif" />
+            <div>
+                Please wait...
+            </div>
+        </div>
+    </div>
+    <a class="back-to-top" href="#" style="display: inline;">
+        <i class="fa fa-angle-up">
+        </i>
+    </a>
+
+</body>
+</html>
+<script type="text/javascript">
+                            $(".header-content").css({ "background": '' });
+                            $("html").addClass('');
+                            $(document).ready(function () {
+                                $("img.lazy-img").each(function () {
+                                    //$(this).attr("data-original", $(this).attr("src"));
+                                    //$(this).attr("src", "/Images/blank.gif");
+                                });
+                                $("img.lazy-img").lazyload({
+                                    effect: "fadeIn",
+                                    threshold: 200
+                                });
+                            });
+</script>

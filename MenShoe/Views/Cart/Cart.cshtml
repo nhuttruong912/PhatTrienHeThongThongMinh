@@ -1,0 +1,81 @@
+﻿@using MenShoe.EF;
+@model List<MenShoe.Models.Cart>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="~/Content/Cart/Cart.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_UserLayoutDetail.cshtml";
+}
+
+<div class="">
+    <div>
+        @if (ViewBag.Quanlity_Total == 1)
+        {
+            <h1 style="display: inline">Cart</h1><span> (1 Product)</span>
+            <hr />
+        }
+        else
+        {
+            <h1 style="display: inline">Cart</h1><span> (@ViewBag.Quanlity_Total Products)</span>
+            <hr />
+        }
+
+    </div>
+
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Product</th>
+                <th style="width:10%">Price</th>
+                <th style="width:8%">Quantity</th>
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-3"><img src="../@item.m_Image" alt="..." class="img-responsive" /></div>
+                            <div class="col-sm-9">
+                                <h4 class="nomargin"><a href="@Url.Action("DetailProduct","Product", new { @m_ProductID = item.m_Id_Product })">@item.m_Name</a></h4>
+                                <p>Color: <span style="display: inline-block;vertical-align: middle;margin-right: 10px;height: 2em;width: 2em;border-radius: 2px;background: @item.m_Color"></span></p>
+                                <p>Size: @item.m_Size</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Price">$@item.m_Price</td>
+                    @using (Html.BeginForm("UpdateCart", "Cart", new { @m_Id_Product = item.m_Id_Product, @m_size = item.m_Size }))
+                    {
+                        <td data-th="Quantity">
+                            <input type="number" min="1" name="txtQuanlity" class="form-control text-center" value="@item.m_Quanlity">
+                        </td>
+                        <td data-th="Subtotal" class="text-center">$@(item.m_Price * item.m_Quanlity)</td>
+                        <td class="actions" data-th="">
+                            <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
+                            <a href="@Url.Action("DeleteCart","Cart", new { @Id_Product = item.m_Id_Product, @size = item.m_Size })">
+                                <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                            </a>
+                        </td>
+                    }
+                </tr>
+            }
+        </tbody>
+
+
+        <tfxoot>
+            <tr class="visible-xs">
+                <td class="text-center"><strong>Total $@ViewBag.money_Total</strong></td>
+            </tr>
+            <tr>
+                <td><a href="@Url.Action("Index","Home")" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong>Total $@ViewBag.money_Total</strong></td>
+                <td><a href="@Url.Action("CheckOutCart","Cart")" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+            </tr>
+        </tfxoot>
+    </table>
+</div>

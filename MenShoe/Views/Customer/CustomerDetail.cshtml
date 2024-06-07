@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "CustomerDetail";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<style>
+    
+</style>
+<div class="col-md-3">
+
+    <div class="box-sale-policy" ng-controller="moduleController" ng-init="initSalePolicyController('Shop')">
+        <h3><span>Customer Information</span></h3>
+        <div class="sale-policy-block">
+            <ul>
+                <li><img /></li>
+                <li><i class="fa fa-user"></i>Profile</li>
+                <li><i class="fa fa-list-alt"></i>Order</li>
+            </ul>
+        </div>
+        <div class="buy-guide">
+            <h3>Hướng Dẫn Mua Hàng</h3>
+            <ul>
+                <li>
+                    Mua hàng trực tiếp tại website
+                    <b> {{shop.Website}}</b>
+                </li>
+                <li>
+                    Gọi điện thoại <strong>
+                        {{shop.Hotline}}
+                    </strong> để mua hàng
+                </li>
+                <li>
+                    Mua tại Trung tâm CSKH:<br />
+                    <strong>{{shop.Address}}</strong>
+                    <a href="/ban-do.html" rel="nofollow" target="_blank">Xem Bản Đồ</a>
+                </li>
+                <li>
+                    Mua sỉ/buôn xin gọi <strong>
+                        {{shop.Hotline}}
+                    </strong> để được
+                    hỗ trợ.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-md-9">
+    Detail
+</div>

@@ -1,0 +1,88 @@
+﻿@using MenShoe.EF;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<MenShoe.EF.Product>
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_UserLayoutDetail.cshtml";
+}
+<section class="product-content clearfix">
+    <h1 class="title clearfix"><span>Men's @ViewBag.ProductCategoryName Shoes</span></h1>
+    <nav class="navbar navbar-default product-filter">
+        <ul class="display">
+            <li id="grid" class="active grid"><a href="#" title="Grid"><i class="fa fa-th-large"></i></a></li>
+            <li id="list" class="list"><a href="#" title="List"><i class="fa fa-th-list"></i></a></li>
+        </ul>
+        <div class="limit">
+            <span>Sản phẩm/trang</span>
+            <select id="lblimit" name="lblimit" class="nb_item" onchange="window.location.href = this.options[this.selectedIndex].value">
+                <option value="?limit=10">10</option>
+                <option value="?limit=12">12</option>
+                <option value="?limit=20">20</option>
+                <option value="?limit=50">50</option>
+                <option value="?limit=100">100</option>
+                <option value="?limit=250">250</option>
+                <option value="?limit=500">500</option>
+            </select>
+        </div>
+        <div class="sort">
+            <span>Sắp xếp</span>
+            <select class="selectProductSort" id="lbsort" onchange="window.location.href = this.options[this.selectedIndex].value">
+                <option value="?sort=index&amp;order=asc">Mặc định</option>
+                <option value="?sort=price&amp;order=asc">Gi&#225; tăng dần</option>
+                <option value="?sort=price&amp;order=desc">Gi&#225; giảm dần</option>
+                <option value="?sort=name&amp;order=asc">T&#234;n sản phẩm: A to Z</option>
+                <option value="?sort=name&amp;order=desc">T&#234;n sản phẩm: Z to A</option>
+            </select>
+        </div>
+    </nav>
+    <div class="product-block product-grid clearfix">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-2 col-sm-2 col-xs-12 product-resize product-item-box">
+                <div class="product-item">
+                    <div class="image image-resize">
+                        <a href="@Url.Action("DetailProduct","Product", new {@m_ProductID = item.ProductID })" title="Asus TP550LA-CJ040H - Core i3 4030U / 15.6&quot; Touch / 4GB (Đen)">
+                            <img src="../@Url.Content(item.Image)" data-original="@Url.Content(item.Image)" alt="@item.ProductID" class="img-responsive lazy-img" />
+                        </a>
+                        <span class="hot">Hot</span>
+                    </div>
+                    <div class="right-block">
+                        <h2 class="name">
+                            <b>@item.ProductCategory.Name.ToUpper()</b>
+                            @if (item.Name.Length < 17)
+                            {
+                                <a href="@Url.Action("DetailProduct","Product", new {@m_ProductID = item.ProductID })" title="@item.Name.ToUpper()">@item.Name.ToUpper()</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("DetailProduct","Product", new {@m_ProductID = item.ProductID })" title="@item.Name.ToUpper()">@item.Name.ToUpper().Substring(0, 17)..</a>
+                            }
+                        </h2>
+                        <div class="rating">
+                            <div class="rating-1">
+                                <span class="rating-img">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="price">
+                            <span class="price-new">@Convert.ToInt64(item.Price).ToString("####,####") <b>$</b></span>
+                        </div>
+                        <div class="button">
+                            <a class="btn btn-default btn-add-cart" href="@Url.Action("DetailProduct","Product", new { @m_ProductID = item.ProductID, @strURL = Request.Url.ToString() })">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+        <div class="navigation col-md-12 col-sm-12 col-xs-12">
+            <ul class="pagination">
+                <li>Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</li>
+                <li class="">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,82 @@
+﻿@model PagedList.IPagedList<MenShoe.EF.User>
+@using MenShoe.EF;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="table-responsive">
+    <table class="table table-responsive">
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                UserName
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Mobile
+            </th>
+            <th>
+                CreatedDate
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "DetailUser", new { id = item.UserID }) |
+                    @Html.ActionLink("Delete", "DeleteUser", new { id = item.UserID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="navigation col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+        <ul class="pagination">
+            <li>Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</li>
+            <li class="">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+            </li>
+        </ul>
+    </div>
+</div>

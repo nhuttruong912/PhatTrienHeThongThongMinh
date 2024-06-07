@@ -1,0 +1,1310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0FAE5533-86CF-4435-B711-F1885F84722D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MenShoe</RootNamespace>
+    <AssemblyName>MenShoe</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ErrorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginAdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderDetailController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Models\CartView.cs" />
+    <Compile Include="Common\Encryptor.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductCategoryController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Dao\OrderDao.cs" />
+    <Compile Include="Dao\ProductCategory.cs" />
+    <Compile Include="Dao\ProductDao.cs" />
+    <Compile Include="Dao\SearchDao.cs" />
+    <Compile Include="EF\Category.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Color.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Customer.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\MenShoeEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenShoeEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\MenShoeEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\MenShoeEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenShoeEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Order.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\OrderDetail.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Product.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductCategory.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ProductImage.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Product_Color.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Product_Size.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Size.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\sp_helpdiagrams_Result.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\sysdiagram.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\User.cs">
+      <DependentUpon>MenShoeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Color.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetail.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductCategory.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductImage.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Size.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CommonImage\cart-empty.png" />
+    <Content Include="Content\Admin\AdminLayout.css" />
+    <Content Include="Content\Admin\Layout\assets\apps\css\inbox.min.css" />
+    <Content Include="Content\Admin\Layout\assets\apps\css\ticket.min.css" />
+    <Content Include="Content\Admin\Layout\assets\apps\css\todo-2.min.css" />
+    <Content Include="Content\Admin\Layout\assets\apps\css\todo.min.css" />
+    <Content Include="Content\Admin\Layout\assets\apps\scripts\calendar.min.js" />
+    <Content Include="Content\Admin\Layout\assets\apps\scripts\inbox.min.js" />
+    <Content Include="Content\Admin\Layout\assets\apps\scripts\timeline.min.html" />
+    <Content Include="Content\Admin\Layout\assets\apps\scripts\todo-2.min.js" />
+    <Content Include="Content\Admin\Layout\assets\apps\scripts\todo.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\css\components.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\css\plugins.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\img\accordion-plusminus.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\datatable-row-openclose.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\flags\de.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\flags\es.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\flags\fr.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\flags\ru.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\flags\us.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\loading-spinner-grey.gif" />
+    <Content Include="Content\Admin\Layout\assets\global\img\loading.gif" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\01.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\02.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\03.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\04.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\05.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\06.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\07.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\10.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\12.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\13.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\40.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\41.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\50.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\57.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\6.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\60.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\7.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\72.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\84.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\1200x900\92.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\01.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\013.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\02.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\03.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\04.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\05.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\08.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\10.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\102.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\12.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\16.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\21.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\22.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\23.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\24.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\25.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\26.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\27.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\28.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\29.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\30.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\31.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\32.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\33.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\38.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\45.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\58.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\6.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\62.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\65.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\81.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\87.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\88.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\94.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portfolio\600x600\96.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-collapse-icon-white.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-collapse-icon.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-config-icon-white.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-config-icon.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-expand-icon-white.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-expand-icon.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-reload-icon-white.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-reload-icon.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-remove-icon-white.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\portlet-remove-icon.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\remove-icon-small.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\aboutme.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\amazon.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\behance.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\blogger.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\deviantart.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\dribbble.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\dropbox.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\evernote.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\facebook.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\flickr.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\forrst.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\foursquare.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\github.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\googleplus.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\gravatar.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\instagram.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\jolicloud.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\klout.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\last-fm.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\linkedin.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\myspace.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\picasa.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\pintrest.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\quora.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\reddit.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\rss.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\skype.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\spotify.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\stumbleupon.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\tumblr.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\twitter.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\vimeo.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\vk.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\wordpress.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\xing.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\yahoo.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\social\youtube.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\syncfusion-icons-white.png" />
+    <Content Include="Content\Admin\Layout\assets\global\img\syncfusion-icons.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\amcharts\amcharts.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\amcharts\pie.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\amcharts\radar.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\amcharts\serial.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\amcharts\themes\chalk.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\amcharts\themes\light.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\amcharts\themes\patterns.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\ammap\ammap.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\ammap\maps\js\worldLow.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\amcharts\amstockcharts\amstock.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\autosize\autosize.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\backstretch\jquery.backstretch.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootbox\bootbox.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-colorpicker\css\colorpicker.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-colorpicker\img\alpha.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-colorpicker\img\hue.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-colorpicker\img\saturation.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-confirmation\bootstrap-confirmation.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-contextmenu\bootstrap-contextmenu.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-datepaginator\bootstrap-datepaginator.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-datepaginator\bootstrap-datepaginator.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-daterangepicker\daterangepicker.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-daterangepicker\daterangepicker.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-editable\bootstrap-editable\css\bootstrap-editable.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-editable\bootstrap-editable\img\clear.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-editable\bootstrap-editable\img\loading.gif" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-editable\bootstrap-editable\js\bootstrap-editable.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-editable\inputs-ext\address\address.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-editable\inputs-ext\address\address.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-editable\inputs-ext\wysihtml5\wysihtml5.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-fileinput\bootstrap-fileinput.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-fileinput\bootstrap-fileinput.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-growl\jquery.bootstrap-growl.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-markdown\css\bootstrap-markdown.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-markdown\js\bootstrap-markdown.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-markdown\lib\markdown.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-maxlength\bootstrap-maxlength.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-modal\css\bootstrap-modal-bs3patch.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-modal\css\bootstrap-modal.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-modal\js\bootstrap-modal.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-modal\js\bootstrap-modalmanager.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-multiselect\css\bootstrap-multiselect.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-multiselect\js\bootstrap-multiselect.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-pwstrength\pwstrength-bootstrap.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-selectsplitter\bootstrap-selectsplitter.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-select\css\bootstrap-select.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-select\js\bootstrap-select.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-sessiontimeout\bootstrap-session-timeout.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-summernote\summernote.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-summernote\summernote.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-sweetalert\sweetalert.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-sweetalert\sweetalert.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-switch\css\bootstrap-switch.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-switch\js\bootstrap-switch.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-tabdrop\js\bootstrap-tabdrop.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-table\bootstrap-table.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-table\bootstrap-table.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-tagsinput\bootstrap-tagsinput-typeahead.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-tagsinput\bootstrap-tagsinput.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-tagsinput\bootstrap-tagsinput.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-timepicker\css\bootstrap-timepicker.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-timepicker\js\bootstrap-timepicker.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-toastr\toastr.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-toastr\toastr.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-touchspin\bootstrap.touchspin.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-touchspin\bootstrap.touchspin.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-typeahead\bootstrap3-typeahead.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-wizard\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-wysihtml5\bootstrap-wysihtml5.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\ckeditor\ckeditor.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\clipboardjs\clipboard.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\clockface\css\clockface.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\clockface\js\clockface.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\codemirror\lib\codemirror.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\codemirror\lib\codemirror.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\codemirror\mode\css\css.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\codemirror\mode\javascript\javascript.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\codemirror\theme\ambiance.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\codemirror\theme\material.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\codemirror\theme\neat.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\codemirror\theme\neo.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\countdown\jquery.countdown.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\counterup\jquery.counterup.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\counterup\jquery.waypoints.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\cubeportfolio\css\cubeportfolio.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\cubeportfolio\img\cbp-sprite.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\cubeportfolio\js\jquery.cubeportfolio.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\DataTables-1.10.12\images\sort_asc.html" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\DataTables-1.10.12\images\sort_asc_disabled.html" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\DataTables-1.10.12\images\sort_both.html" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\DataTables-1.10.12\images\sort_desc.html" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\DataTables-1.10.12\images\sort_desc_disabled.html" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\datatables.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\datatables.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\images\sort_asc.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\images\sort_asc_disabled.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\images\sort_both.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\images\sort_desc.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\images\sort_desc_disabled.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\plugins\bootstrap\datatables.bootstrap.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\datatables\plugins\bootstrap\datatables.bootstrap.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\dropzone\basic.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\dropzone\dropzone.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\dropzone\dropzone.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\echarts\echarts.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fancybox\source\blank.gif" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fancybox\source\fancybox_loading%402x.gif" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fancybox\source\fancybox_loading.gif" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fancybox\source\fancybox_overlay.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fancybox\source\fancybox_sprite%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fancybox\source\fancybox_sprite.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fancybox\source\jquery.fancybox.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fancybox\source\jquery.fancybox.pack.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\flot\jquery.flot.axislabels.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\flot\jquery.flot.categories.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\flot\jquery.flot.crosshair.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\flot\jquery.flot.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\flot\jquery.flot.pie.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\flot\jquery.flot.resize.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\flot\jquery.flot.stack.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\flowchart\flowchart.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fuelux\js\spinner.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fullcalendar\fullcalendar.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\fullcalendar\fullcalendar.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\gmaps\gmaps.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\highcharts\js\highcharts-3d.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\highcharts\js\highcharts-more.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\highcharts\js\highcharts.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\highmaps\js\modules\data.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\highmaps\js\modules\map.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\highstock\js\highstock.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\holder.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\horizontal-timeline\horizontal-timeline.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\icheck.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\all.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\aero%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\aero.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\blue%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\blue.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\flat%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\flat.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\green%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\green.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\grey%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\grey.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\orange%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\orange.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\pink%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\pink.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\purple%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\purple.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\red%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\red.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\yellow%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\yellow.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\flat\_all.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\futurico\futurico%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\futurico\futurico.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\futurico\futurico.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\line\line%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\line\line.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\line\_all.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\aero%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\aero.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\blue%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\blue.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\green%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\green.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\grey%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\grey.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\minimal%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\minimal.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\orange%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\orange.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\pink%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\pink.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\purple%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\purple.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\red%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\red.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\yellow%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\yellow.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\minimal\_all.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\polaris\polaris%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\polaris\polaris.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\polaris\polaris.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\aero%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\aero.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\blue%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\blue.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\green%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\green.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\grey%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\grey.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\orange%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\orange.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\pink%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\pink.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\purple%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\purple.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\red%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\red.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\square%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\square.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\yellow%402x.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\yellow.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\icheck\skins\square\_all.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\ion.rangeslider\css\ion.rangeSlider.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\ion.rangeslider\css\ion.rangeSlider.skinFlat.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\ion.rangeslider\img\sprite-skin-flat.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\ion.rangeslider\js\ion.rangeSlider.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jcrop\css\Jcrop.gif" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jcrop\css\jquery.Jcrop.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jcrop\demos\demo_files\image1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jcrop\demos\demo_files\image2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jcrop\demos\demo_files\image3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jcrop\demos\demo_files\image4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jcrop\demos\demo_files\image5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jcrop\js\jquery.color.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jcrop\js\jquery.Jcrop.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-bootpag\jquery.bootpag.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-cookiebar\jquery.cookieBar.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-easypiechart\jquery.easypiechart.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\blueimp-gallery\blueimp-gallery.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\blueimp-gallery\jquery.blueimp-gallery.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\css\jquery.fileupload.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\img\error.html" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\img\loading.gif" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\img\play-pause.html" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\img\progressbar.gif" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\img\video-play.html" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\jquery.fileupload-audio.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\jquery.fileupload-image.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\jquery.fileupload-process.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\jquery.fileupload-ui.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\jquery.fileupload-validate.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\jquery.fileupload-video.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\jquery.fileupload.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\jquery.iframe-transport.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\vendor\canvas-to-blob.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\vendor\load-image.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-file-upload\js\vendor\tmpl.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-idle-timeout\jquery.idletimeout.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-idle-timeout\jquery.idletimer.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-inputmask\jquery.inputmask.bundle.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-knob\js\jquery.knob.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-minicolors\jquery.minicolors.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-minicolors\jquery.minicolors.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-minicolors\jquery.minicolors.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-multi-select\css\multi-select.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-multi-select\img\switch.png" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-multi-select\js\jquery.multi-select.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-nestable\jquery.nestable.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-nestable\jquery.nestable.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-notific8\jquery.notific8.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-notific8\jquery.notific8.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-repeater\jquery.repeater.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-ui\jquery-ui.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-validation\js\additional-methods.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery-validation\js\jquery.validate.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery.blockui.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery.input-ip-address-control-1.0.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery.mockjax.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery.pulsate.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jquery.sparkline.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jqvmap\jqvmap\data\jquery.vmap.sampledata.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jqvmap\jqvmap\jquery.vmap.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jqvmap\jqvmap\jqvmap.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jqvmap\jqvmap\maps\jquery.vmap.europe.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jqvmap\jqvmap\maps\jquery.vmap.germany.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jqvmap\jqvmap\maps\jquery.vmap.russia.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jqvmap\jqvmap\maps\jquery.vmap.usa.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jqvmap\jqvmap\maps\jquery.vmap.world.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\js.cookie.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jstree\dist\jstree.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\jstree\dist\themes\default\style.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\ladda\ladda-themeless.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\ladda\ladda.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\ladda\spin.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\moment.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\morris\morris.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\morris\morris.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\morris\raphael-min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\nouislider\nouislider.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\nouislider\nouislider.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\nouislider\nouislider.pips.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\nouislider\wNumb.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\pace\pace.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\pace\themes\pace-theme-big-counter.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\pace\themes\pace-theme-flash.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\plupload\js\plupload.full.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\raphael.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\select2\css\select2-bootstrap.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\select2\css\select2.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\select2\js\select2.full.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\simple-line-icons\simple-line-icons.min.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\socicon\font\socicon.svg" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\socicon\socicon.css" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\typeahead\handlebars.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\typeahead\typeahead.bundle.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\typeahead\typeahead.css" />
+    <Content Include="Content\Admin\Layout\assets\global\scripts\app.min.js" />
+    <Content Include="Content\Admin\Layout\assets\global\scripts\datatable.js" />
+    <Content Include="Content\Admin\Layout\assets\layouts\global\scripts\cookie-consent.min.js" />
+    <Content Include="Content\Admin\Layout\assets\layouts\global\scripts\quick-nav.min.js" />
+    <Content Include="Content\Admin\Layout\assets\layouts\global\scripts\quick-sidebar.min.js" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout2\css\custom.min.css" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout2\css\layout.min.css" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout2\css\themes\blue.min.css" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout2\img\avatar3_small.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout2\img\logo-default.png" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout2\img\sidebar-toggler-inverse.png" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout2\img\sidebar-toggler.png" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout2\scripts\demo.min.js" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout2\scripts\layout.min.js" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout3\img\avatar1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout3\img\avatar2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout3\img\avatar3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar10.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar11.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar6.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar7.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar8.jpg" />
+    <Content Include="Content\Admin\Layout\assets\layouts\layout\img\avatar9.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\about.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\blog.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\coming-soon.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\contact.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\error.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\faq.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\image-crop.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\invoice-2.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\invoice.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\lock-2.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\lock.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\login-2.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\login-3.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\login-4.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\login-5.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\login.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\portfolio.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\pricing.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\profile-2.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\profile.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\css\search.min.css" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\avatars\team1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\avatars\team12.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\avatars\team2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\avatars\team3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\avatars\team4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\avatars\team5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\avatars\team6.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\avatars\team7.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\avatars\team8.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\12.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\32.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\34.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\37.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\42.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\43.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\46.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\53.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\57.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\59.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\background\7.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\bg-white-lock.png" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\bg-white.png" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\login\bg1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\login\login-invert.png" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\login\logo.png" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\logo-big-white.png" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\logo-big.png" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\logos\logo5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\01.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\02.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\03.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\04.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\05.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\06.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\img\page_general_search\5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\bg\5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\blog\4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\blog\5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\blog\6.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\gallery\image2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\gallery\image4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\invoice\walmart.png" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\pages\earth.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\profile\people19.png" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\profile\photo1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\profile\photo2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\profile\photo3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\profile\profile.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\profile\profile_user.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar10.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar6.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar7.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar8.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar80_1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar80_2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar80_3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar80_5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar80_6.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar80_7.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar80_8.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\avatar9.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\teambg1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\teambg2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\teambg5.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\users\teambg8.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\works\img1.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\works\img2.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\works\img3.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\media\works\img4.jpg" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\charts-amcharts.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\charts-echarts.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\charts-flotcharts.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\charts-flowchart.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\charts-google.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\charts-highcharts.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\charts-highmaps.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\charts-highstock.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\charts-morris.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\coming-soon.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-bootstrap-maxlength.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-bootstrap-multiselect.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-bootstrap-select-splitter.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-bootstrap-select.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-bootstrap-switch.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-bootstrap-tagsinput.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-bootstrap-touchspin.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-clipboard.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-code-editors.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-color-pickers.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-context-menu.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-date-time-pickers.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-editors.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-form-tools.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-ion-sliders.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-knob-dials.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-multi-select.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-nouisliders.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-select2.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\components-typeahead.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\contact.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\dashboard.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ecommerce-dashboard.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ecommerce-orders-view.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ecommerce-orders.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ecommerce-products-edit.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ecommerce-products.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-dropzone.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-editable.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-fileupload.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-icheck.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-image-crop.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-input-mask.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-repeater.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-samples.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-validation-md.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-validation.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\form-wizard.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\lock-2.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\lock.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\login-4.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\login-5.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\login.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\maps-google.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\maps-vector.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\portfolio-1.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\portfolio-2.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\portfolio-3.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\portfolio-4.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\portlet-ajax.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\portlet-draggable.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\profile.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\search.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-bootstrap.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-datatables-ajax.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-datatables-buttons.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-datatables-colreorder.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-datatables-editable.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-datatables-fixedheader.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-datatables-managed.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-datatables-responsive.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-datatables-rowreorder.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\table-datatables-scroller.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\timeline.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-alerts-api.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-blockui.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-bootbox.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-bootstrap-growl.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-buttons-spinners.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-confirmations.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-datepaginator.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-extended-modals.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-general.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-idletimeout.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-modals.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-nestable.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-notific8.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-session-timeout.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-sweetalert.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-toastr.min.js" />
+    <Content Include="Content\Admin\Layout\assets\pages\scripts\ui-tree.min.js" />
+    <Content Include="Content\Admin\Login.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Admin\Cart\Cart.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Product\css\ProductDetail.css" />
+    <Content Include="Content\User\app\appMain.js" />
+    <Content Include="Content\User\app\controllers\moduleController.js" />
+    <Content Include="Content\User\app\directives\angular-summernote.js" />
+    <Content Include="Content\User\app\directives\directive.js" />
+    <Content Include="Content\User\app\directives\paging.js" />
+    <Content Include="Content\User\app\services\ajaxServices.js" />
+    <Content Include="Content\User\app\services\alertsServices.js" />
+    <Content Include="Content\User\app\services\moduleServices.js" />
+    <Content Include="Content\User\App_Themes\Home\animate.css" />
+    <Content Include="Content\User\App_Themes\Home\common.css" />
+    <Content Include="Content\User\App_Themes\Home\font-awesome.min.css" />
+    <Content Include="Content\User\App_Themes\Home\Style.css" />
+    <Content Include="Content\User\App_Themes\i_mycart.png" />
+    <Content Include="Content\User\Images\ajax-loader-main.gif" />
+    <Content Include="Content\User\LoginUser.css" />
+    <Content Include="Content\User\RegisterUser.css" />
+    <Content Include="Content\User\Scripts\angular-loading-spinner\angular-loading-spinner.js" />
+    <Content Include="Content\User\Scripts\angular-loading-spinner\angular-spinner.min.js" />
+    <Content Include="Content\User\Scripts\angular-loading-spinner\spin.min.js" />
+    <Content Include="Content\User\Scripts\angularJS\angular-sanitize.min.js" />
+    <Content Include="Content\User\Scripts\angularJS\angular.min.js" />
+    <Content Include="Content\User\Scripts\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\User\Scripts\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\User\Scripts\common\common.js" />
+    <Content Include="Content\User\Scripts\common\fix-height.js" />
+    <Content Include="Content\User\Scripts\common\jquery.cookie.js" />
+    <Content Include="Content\User\Scripts\common\login.js" />
+    <Content Include="Content\User\Scripts\common\mycard.js" />
+    <Content Include="Content\User\Scripts\flexSlider\flexslider.css" />
+    <Content Include="Content\User\Scripts\flexSlider\Images\bg_direction_nav.png" />
+    <Content Include="Content\User\Scripts\flexSlider\jquery.flexslider-min.js" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\User\Scripts\jQuery-ui\jquery-ui.min.css" />
+    <Content Include="Content\User\Scripts\jQuery-ui\jquery-ui.min.js" />
+    <Content Include="Content\User\Scripts\jQuery\jquery-2.1.4.min.js" />
+    <Content Include="Content\User\Scripts\jQuery\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Content\User\Scripts\lazyLoad\jquery.lazyload.min.js" />
+    <Content Include="Content\User\Scripts\owl-carousel\owl.carousel.css" />
+    <Content Include="Content\User\Scripts\owl-carousel\owl.carousel.min.js" />
+    <Content Include="Content\User\Scripts\owl-carousel\owl.theme.css" />
+    <Content Include="Content\User\Uploads\shop90\images\banner%281%29.png" />
+    <Content Include="Content\User\Uploads\shop90\images\product\761x309.png" />
+    <Content Include="Content\User\Uploads\shop90\images\product\785x350 _ O1.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\785x350 _ O2.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\785x350dungthumayanh.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\785x350fujifilm.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\796532shoes.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\asus-3505-372622-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\asus-9116-098631-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\Banner-01-770x400-02._CB304870835.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\bannernike.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\banner_NikeScarpeNegozioOnline.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\burbery_2jrem8aiipohl_simg_603cef_226x114_maxb.png" />
+    <Content Include="Content\User\Uploads\shop90\images\product\canon-2050-309213-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\canon-4055-095422-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\canon-4843-618413-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\canon-6755-393313-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\canon-7736-052923-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\canon-8929-931402-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\canon-powershot-g1x-mark-ii1.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\canon-powershot-g7x.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\chamber-6833-898812-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\dell-7270-242341-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\EOS-5D-MarkIII.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\gz-e10.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\lenovo-9594-317202-3-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\m%25C3%25A1y-quayphim-JVC-GZ-MS150-anh4%281%29.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\MAY-ANH-PANASONIC-DMC-SZ3GA-K-DEN.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\MAY-QUAY-PHIM-GZ-E205-4.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\MAY-QUAY-PHIM-GZ-E205-5.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\may-quay-phim-sony-hdr-cx240e.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\may-quay-phim-sony-hdr-PJ240E-1%281%29.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\may-quayphim-samsung-HMX-Q130BP-anh113212544574ec0be39ba90c%281%29%281%29.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\nikon-3667-500402-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\nikon-6436-868422-1-zoom.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\sony-7155-751762-1-product.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\sony-7211-061762-1-product.jpg" />
+    <Content Include="Content\User\Uploads\shop90\images\product\sony-ericsson-4844-718413-1-zoom.jpg" />
+    <Content Include="EF\MenShoeEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MenShoeEntities.edmx</DependentUpon>
+      <LastGenOutput>MenShoeEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EF\MenShoeEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MenShoeEntities.edmx</DependentUpon>
+      <LastGenOutput>MenShoeEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="ProductImage\shoes_ia71673.jpg" />
+    <Content Include="ProductImage\shoes_ia71674.jpg" />
+    <Content Include="ProductImage\shoes_ia71675.jpg" />
+    <Content Include="ProductImage\shoes_ia71677.jpg" />
+    <Content Include="ProductImage\shoes_ia71679.jpg" />
+    <Content Include="ProductImage\shoes_ia71680.jpg" />
+    <Content Include="ProductImage\shoes_ib71673.jpg" />
+    <Content Include="ProductImage\shoes_ib71674.jpg" />
+    <Content Include="ProductImage\shoes_ib71675.jpg" />
+    <Content Include="ProductImage\shoes_ib71677.jpg" />
+    <Content Include="ProductImage\shoes_ib71679.jpg" />
+    <Content Include="ProductImage\shoes_ib71680.jpg" />
+    <Content Include="ProductImage\shoes_id71673.jpg" />
+    <Content Include="ProductImage\shoes_id71674.jpg" />
+    <Content Include="ProductImage\shoes_id71675.jpg" />
+    <Content Include="ProductImage\shoes_id71677.jpg" />
+    <Content Include="ProductImage\shoes_id71679.jpg" />
+    <Content Include="ProductImage\shoes_id71680.jpg" />
+    <Content Include="ProductImage\shoes_ie71673.jpg" />
+    <Content Include="ProductImage\shoes_ie71674.jpg" />
+    <Content Include="ProductImage\shoes_ie71675.jpg" />
+    <Content Include="ProductImage\shoes_ie71677.jpg" />
+    <Content Include="ProductImage\shoes_ie71679.jpg" />
+    <Content Include="ProductImage\shoes_ie71680.jpg" />
+    <Content Include="ProductImage\shoes_if71673.jpg" />
+    <Content Include="ProductImage\shoes_if71674.jpg" />
+    <Content Include="ProductImage\shoes_if71675.jpg" />
+    <Content Include="ProductImage\shoes_if71677.jpg" />
+    <Content Include="ProductImage\shoes_if71679.jpg" />
+    <Content Include="ProductImage\shoes_if71680.jpg" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\User\App_Themes\Home\fonts\avantg.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\cour.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\courbd.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\courbi.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\couri.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\User\App_Themes\Home\fonts\HL-thufap1-Unicode.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\iCielBambola.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\OpenSans-Regular.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\Roboto-Regular.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\UVNBaiSau.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\UVNBaiSau_R.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\UVNHuongQue_R.TTF" />
+    <Content Include="Content\User\App_Themes\Home\fonts\UVNMuaThu.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\vnithufap.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\Vntfap01.ttf" />
+    <Content Include="Content\User\App_Themes\Home\fonts\VUNIVER.TTF" />
+    <Content Include="Content\User\Scripts\bootstrap\fonts\glyphicons-halflings-regular.svg#glyphicons_halflingsregular" />
+    <Content Include="Content\User\Scripts\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\User\Scripts\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\User\Scripts\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\User\Scripts\flexSlider\fonts\flexslider-icon.eot" />
+    <Content Include="Content\User\Scripts\flexSlider\fonts\flexslider-icon.svg#flexslider-icon" />
+    <Content Include="Content\User\Scripts\flexSlider\fonts\flexslider-icon.ttf" />
+    <Content Include="Content\User\Scripts\flexSlider\fonts\flexslider-icon.woff" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\LoginAdmin\LoginAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-summernote\font\summernoted41d.eot" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-summernote\font\summernotef534.eot" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-summernote\font\summernotef534.ttf" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\bootstrap-summernote\font\summernotef534.woff" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\simple-line-icons\fonts\Simple-Line-Iconsd41d.eot" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\socicon\font\socicon.eot" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\socicon\font\socicon.ttf" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\socicon\font\socicon.woff" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\socicon\font\socicon.woff2" />
+    <Content Include="Content\Admin\Layout\assets\global\plugins\socicon\font\socicond41d.eot" />
+    <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\DetailUser.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\OrderDetailView.cshtml" />
+    <Content Include="Areas\Admin\Views\OrderDetail\OrderDetailViewCart.cshtml" />
+    <Content Include="Areas\Admin\Views\Error\Error.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <EntityDeploy Include="EF\MenShoeEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MenShoeEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EF\MenShoeEntities.edmx.diagram">
+      <DependentUpon>MenShoeEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Product\UpdateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\CreateProduct.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\ProductCategory\ProductCategoryPartial.cshtml" />
+    <Content Include="Views\Shared\_UserLayoutDetail.cshtml" />
+    <Content Include="Views\Product\DetailProduct.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\User\UserLogin.cshtml" />
+    <Content Include="Views\User\UserRegister.cshtml" />
+    <Content Include="Views\Cart\EmptyCart.cshtml" />
+    <Content Include="Views\Error\Error.cshtml" />
+    <Content Include="Views\Product\HotProductPartial.cshtml" />
+    <Content Include="Views\Shared\_FooterLayout.cshtml" />
+    <Content Include="Views\ProductCategory\ListProductCategory.cshtml" />
+    <Content Include="Views\ProductCategory\ProductCategory.cshtml" />
+    <Content Include="Views\ProductCategory\EmptyProductCategory.cshtml" />
+    <Content Include="Views\Category\EmptyCategory.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Search\SearchResult.cshtml" />
+    <Content Include="Views\Search\searchNull.cshtml" />
+    <Content Include="Views\Customer\CustomerLogin.cshtml" />
+    <Content Include="Views\Customer\CustomerRegister.cshtml" />
+    <Content Include="Views\Customer\CustomerDetail.cshtml" />
+    <Content Include="Views\Cart\CheckOutSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\User\connect.facebook.net\en_US\" />
+    <Folder Include="Content\User\js\" />
+    <Folder Include="Content\User\Scripts\bootstrap\css\github.com\necolas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61642</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61642/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

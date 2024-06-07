@@ -1,0 +1,324 @@
+@charset "utf-8";
+/*BEGIN-CSS:font-face
+==================================================================================================================*/
+@font-face {
+    font-family: UVNMuaThu;
+    src: url(fonts/UVNMuaThu.ttf);
+}
+
+@font-face {
+    font-family: Bambola;
+    src: url(fonts/iCielBambola.ttf);
+}
+
+@font-face {
+    font-family: iCBambola;
+    src: url(fonts/iCielBambola.otf);
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+    font-family: Open san;
+    src: url(fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: UVNBaiSau;
+    src: url(fonts/UVNBaiSau.ttf);
+}
+
+@font-face {
+    font-family: UVNBaiSauR;
+    src: url(fonts/UVNBaiSau_R.ttf);
+}
+
+@font-face {
+    font-family: Cour;
+    src: url(fonts/cour.ttf);
+}
+
+@font-face {
+    font-family: Courbd;
+    src: url(fonts/courbd.ttf);
+}
+
+@font-face {
+    font-family: Couri;
+    src: url(fonts/couri.ttf);
+}
+
+@font-face {
+    font-family: Courbi;
+    src: url(fonts/courbi.ttf);
+}
+
+@font-face {
+    font-family: VUNIVER;
+    src: url(fonts/VUNIVER.TTF);
+}
+
+@font-face {
+    font-family: Avantg;
+    src: url(fonts/avantg.ttf);
+}
+
+@font-face {
+    font-family: VTNfap;
+    src: url(fonts/Vntfap01.ttf);
+}
+
+@font-face {
+    font-family: VNIthufap;
+    src: url(fonts/vnithufap.ttf);
+}
+
+@font-face {
+    font-family: UVNHuongQue;
+    src: url(fonts/UVNHuongQue_R.TTF);
+}
+
+@font-face {
+    font-family: HL-thufap;
+    src: url(fonts/HL-thufap1-Unicode.ttf);
+}
+/*BEGIN-CSS:RESET
+==================================================================================================================*/
+a,
+a:active,
+a:focus,
+a:hover,
+h5,
+h5:hover {
+    outline: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+    a:hover, a:active, a:focus {
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ol,
+ul {
+    margin: 0;
+}
+/*END-CSS:RESET
+==================================================================================================================*/
+
+/*BEGIN-CSS:Common
+==================================================================================================================*/
+.relative {
+    position: relative;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.margin-top-0 {
+    margin-top: 0 !important;
+}
+
+.margin-top-5 {
+    margin-top: 5px !important;
+}
+
+.margin-top-10 {
+    margin-top: 10px !important;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0 !important;
+}
+
+.margin-bottom-5 {
+    margin-bottom: 5px !important;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px !important;
+}
+
+.margin-right-5 {
+    margin-right: 5px !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-padding-bottom {
+    padding-bottom: 0 !important;
+}
+
+.padding-5 {
+    padding: 5px !important;
+}
+
+.padding-7 {
+    padding: 7px !important;
+}
+
+.padding-10 {
+    padding: 10px !important;
+}
+
+.padding-top-0 {
+    padding-top: 0 !important;
+}
+
+.padding-top-10 {
+    padding-top: 10px !important;
+}
+
+.padding-top-15 {
+    padding-top: 15px !important;
+}
+
+.padding-bottom-0 {
+    padding-bottom: 0 !important;
+}
+
+.padding-bottom-10 {
+    padding-bottom: 10px !important;
+}
+
+.no-border {
+    border-width: 0 !important;
+}
+
+.no-border-transparent {
+    border-color: transparent !important;
+}
+
+.no-border-radius {
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+.display-inline {
+    display: inline-block !important;
+}
+
+.display-normal {
+    display: inline !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.hover-transparent {
+    opacity: .5;
+}
+
+    .hover-transparent:hover {
+        opacity: 1;
+    }
+
+#loading-mask {
+    color: #d85909;
+    font-size: 1.1em;
+    font-weight: bold;
+    opacity: 0.8;
+    text-align: center;
+    z-index: 500;
+}
+
+    #loading-mask .loader {
+        background: #fff4e9 none repeat scroll 0 0;
+        border: 2px solid #f1af73;
+        color: #d85909;
+        font-weight: bold;
+        left: 50%;
+        margin-left: -105px;
+        padding: 15px 30px;
+        position: fixed;
+        text-align: center;
+        top: 45%;
+        width: 150px;
+        z-index: 1000;
+    }
+
+.hotline-icon-left {
+    background: #f0f3ef none repeat scroll 0 0;
+    bottom: 0;
+    color: #fff !important;
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    transition: all 0.3s ease 0s;
+    width: 110px;
+    z-index: 99999999;
+}
+
+    .hotline-icon-left a {
+        background-color: #D6000D;
+        color: #fff !important;
+        cursor: pointer;
+        font-family: Arial;
+        font-size: 13px !important;
+        font-weight: bold;
+        margin: 0 !important;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    .hotline-icon-left i {
+        padding: 15px 0 15px 12px;
+        font-size: 14px;
+    }
+
+.back-to-top {
+    bottom: 40px;
+    display: none;
+    position: fixed;
+    right: 15px;
+    z-index: 9999;
+}
+
+    .back-to-top i {
+        font-size: 19px;
+        background-color: #444;
+        border-radius: 2px;
+        color: #fff;
+        display: block;
+        height: 36px;
+        line-height: 36px;
+        text-align: center;
+        transition: all 0.2s ease-in-out 0s;
+        width: 36px;
+    }
+
+    .back-to-top:hover i {
+        background-color: #ff0000;
+    }
+/*===*/
+.product-tabs .tab-content img {
+    max-height: 100% !important;
+    max-width: 100% !important;
+}
+
+.product-tabs .tab-content table {
+    max-height: 100% !important;
+    max-width: 100% !important;
+}
+
+.news-detail .news-block .content img {
+    max-height: 100% !important;
+    max-width: 100% !important;
+}
+
